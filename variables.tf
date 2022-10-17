@@ -50,3 +50,27 @@ variable "max_node_count" {
 variable "additional_permissions" {
   default = []
 }
+
+variable "master_ipv4_cidr_block" {
+  description = "Private cluster master cidr"
+  type        = string
+  default     = "10.13.37.0/28"
+}
+
+variable "gke_subnet" {
+  description = "Private subnet for GKE"
+  type        = string
+  default     = "10.10.0.0/16"
+}
+
+variable "gke_subnet_services" {
+  description = "Private subnet for GKE services, must be part of var.get_subnet"
+  type        = string
+  default     = "10.11.0.0/20"
+}
+
+variable "gke_subnet_pods" {
+  description = "Private subnet for GKE pods, must be part of var.get_subnet"
+  type        = string
+  default     = "10.12.0.0/20"
+}

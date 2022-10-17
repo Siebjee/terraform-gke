@@ -74,3 +74,21 @@ variable "gke_subnet_pods" {
   type        = string
   default     = "10.12.0.0/20"
 }
+
+variable "min_ports_per_vm" {
+  description = "Minimum ports per VM instance is not specified, the default value is used; 64"
+  type        = number
+  default     = 64
+}
+
+variable "max_ports_per_vm" {
+  description = "Maximum ports per VM instance is not specified, the default value is used; 0"
+  type        = number
+  default     = 0
+}
+
+variable "enable_dynamic_port_allocation" {
+  description = "Enable Dynamic Port Allocation"
+  type        = bool
+  default     = false
+}

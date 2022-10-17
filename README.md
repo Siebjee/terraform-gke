@@ -1,6 +1,6 @@
 ```terraform
 module "gke" {
-  source = "git@github.com:Siebjee/terraform-gke?ref=0.1.1"
+  source = "git@github.com:Siebjee/terraform-gke?ref=0.1.2"
 
   project                = "my-project"
   workload_identity_pool = "my-project.svc.id.goog"

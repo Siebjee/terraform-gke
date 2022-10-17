@@ -1,6 +1,19 @@
+This is a simple module that creates a simple zonal (zone is configured on provider) kubernetes (GKE) cluster.
+You can have 1 zonal GKE control plane per billing account for free, so this is saving some costs.
+
+This module spins up:
+* Public & Private GKE Control plane
+  * Workload Identity Enabled
+* Private GKE node pool
+* Compute private subnet
+* Compute Nat Router
+* Compute Router
+* Separate service account for GKE nodes with access to storage (Image pull access)
+
+Simple usage:
 ```terraform
 module "gke" {
-  source = "git@github.com:Siebjee/terraform-gke?ref=0.1.2"
+  source = "git::https://github.com:Siebjee/terraform-gke?ref=0.1.2"
 
   project                = "my-project"
   workload_identity_pool = "my-project.svc.id.goog"
@@ -31,5 +44,4 @@ module "gke" {
 
   machine_type = "e2-small"
 }
-
 ```

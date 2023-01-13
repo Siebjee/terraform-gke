@@ -5,8 +5,9 @@ resource "google_container_node_pool" "primary" {
   initial_node_count = var.pool_size
 
   autoscaling {
-    min_node_count = var.min_node_count
-    max_node_count = var.max_node_count
+    min_node_count  = var.min_node_count
+    max_node_count  = var.max_node_count
+    location_policy = "ANY"
   }
 
   management {
@@ -37,6 +38,11 @@ resource "google_container_node_pool" "primary" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
+
+    shielded_instance_config {
+      enable_secure_boot          = true
+      enable_integrity_monitoring = true
+    }
 
     labels = {
       cluster = var.cluster_name

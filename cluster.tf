@@ -8,6 +8,8 @@ resource "google_container_cluster" "primary" {
   initial_node_count       = 1
   remove_default_node_pool = true
 
+  datapath_provider = var.datapath_provider
+
   release_channel {
     channel = var.release_channel
   }

@@ -92,3 +92,9 @@ variable "enable_dynamic_port_allocation" {
   type        = bool
   default     = false
 }
+
+variable "datapath_provider" {
+  description = "The GKE Datapath provider"
+  type        = string
+  default     = null
+}
